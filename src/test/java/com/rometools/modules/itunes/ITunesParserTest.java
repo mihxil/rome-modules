@@ -91,6 +91,7 @@ public class ITunesParserTest extends AbstractTestCase {
             LOG.debug("{}", entryInfo);
         }
 
+
         feed = new File(getTestFile("xml/rsr.xml"));
         syndfeed = input.build(new XmlReader(feed.toURI().toURL()));
         entries = syndfeed.getEntries();

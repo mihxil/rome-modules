@@ -42,6 +42,7 @@
 package com.rometools.modules.itunes;
 
 import com.rometools.modules.itunes.types.Duration;
+import com.rometools.modules.itunes.types.YesNo;
 
 /**
  * This class contains information for iTunes podcast feeds that exist at the Item level.
@@ -66,4 +67,12 @@ public interface EntryInformation extends ITunes {
      */
     public void setDuration(Duration duration);
 
+	public YesNo isClosedCaptioned();
+
+	public void setClosedCaptioned(YesNo yesNo);
+
+
+	public Integer getOrder();
+
+	public void setOrder(Integer order);
 }

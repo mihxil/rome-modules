@@ -46,6 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
+import com.rometools.modules.itunes.types.YesNo;
 import org.jdom2.Content;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
@@ -151,6 +152,21 @@ public class ITunesParser implements ModuleParser {
                 final Duration dur = new Duration(duration.getValue().trim());
                 entryInfo.setDuration(dur);
             }
+
+			final Element isClosedCaptioned = element.getChild("isClosedCaption", ns);
+
+			if (isClosedCaptioned!= null && isClosedCaptioned.getValue() != null) {
+				final YesNo yesno = YesNo.valueOf(isClosedCaptioned.getValue().trim());
+				entryInfo.setClosedCaptioned(yesno);
+			}
+
+
+			final Element order = element.getChild("order", ns);
+
+			if (order != null && order.getValue() != null) {
+				final Integer o = Integer.valueOf(order.getValue().trim());
+				entryInfo.setOrder(o);
+			}
         }
         if (module != null) {
             // All these are common to both Channel and Item

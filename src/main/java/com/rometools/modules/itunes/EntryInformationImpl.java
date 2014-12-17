@@ -41,6 +41,7 @@
 package com.rometools.modules.itunes;
 
 import com.rometools.modules.itunes.types.Duration;
+import com.rometools.modules.itunes.types.YesNo;
 import com.rometools.rome.feed.CopyFrom;
 
 /**
@@ -55,6 +56,8 @@ public class EntryInformationImpl extends AbstractITunesObject implements EntryI
      */
     private static final long serialVersionUID = 1L;
     private Duration duration;
+	private YesNo isClosedCaptioned;
+	private Integer order;
 
     /**
      * Creates a new instance of EntryInformationImpl
@@ -82,7 +85,27 @@ public class EntryInformationImpl extends AbstractITunesObject implements EntryI
         this.duration = duration;
     }
 
-    /**
+	@Override
+	public YesNo isClosedCaptioned() {
+		return isClosedCaptioned;
+	}
+
+	@Override
+	public void setClosedCaptioned(YesNo yesNo) {
+		this.isClosedCaptioned = yesNo;
+	}
+
+	@Override
+	public Integer getOrder() {
+		return order;
+	}
+
+	@Override
+	public void setOrder(Integer order) {
+		this.order = order;
+	}
+
+	/**
      * Defined by the ROME module API
      *
      * @param obj Object to copy from
@@ -123,8 +146,16 @@ public class EntryInformationImpl extends AbstractITunesObject implements EntryI
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("[");
-        sb.append(" Duration: ");
-        sb.append(getDuration());
+		sb.append(" Duration: ");
+		sb.append(getDuration());
+		if (isClosedCaptioned != null) {
+			sb.append(" isClosedCaptioned: ");
+			sb.append(isClosedCaptioned);
+		}
+		if (order != null) {
+			sb.append(" order: ");
+			sb.append(order);
+		}
         sb.append("]");
         sb.append(super.toString());
 
