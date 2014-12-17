@@ -10,6 +10,8 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 
+import com.rometools.modules.itunes.types.YesNo;
+import com.rometools.rome.feed.rss.Item;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -104,4 +106,19 @@ public class ITunesParserTest extends AbstractTestCase {
         }
     }
 
+	/**
+	 * Test of parse method, of class com.totsp.xml.syndication.itunes.ITunesParser.
+	 */
+	public void testParseItem() throws Exception {
+		File feed = new File(getTestFile("xml/leshow.xml"));
+		final SyndFeedInput input = new SyndFeedInput();
+		SyndFeed syndfeed = input.build(new XmlReader(feed.toURI().toURL()));
+
+		SyndEntry entry = syndfeed.getEntries().get(0);
+
+		assertEquals("le Show", entry.getTitle());
+		EntryInformationImpl entryInfo = (EntryInformationImpl) entry.getModule(AbstractITunesObject.URI);
+		assertEquals(YesNo.yes, entryInfo.isClosedCaptioned());
+		assertEquals(Integer.valueOf(2), entryInfo.getOrder());
+	}
 }

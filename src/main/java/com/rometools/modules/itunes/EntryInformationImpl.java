@@ -128,6 +128,8 @@ public class EntryInformationImpl extends AbstractITunesObject implements EntryI
 
         setSubtitle(info.getSubtitle());
         setSummary(info.getSummary());
+		setOrder(info.getOrder());
+		setClosedCaptioned(info.isClosedCaptioned());
     }
 
     /**

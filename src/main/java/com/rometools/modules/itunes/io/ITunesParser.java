@@ -153,7 +153,7 @@ public class ITunesParser implements ModuleParser {
                 entryInfo.setDuration(dur);
             }
 
-			final Element isClosedCaptioned = element.getChild("isClosedCaption", ns);
+			final Element isClosedCaptioned = element.getChild("isClosedCaptioned", ns);
 
 			if (isClosedCaptioned!= null && isClosedCaptioned.getValue() != null) {
 				final YesNo yesno = YesNo.valueOf(isClosedCaptioned.getValue().trim());
