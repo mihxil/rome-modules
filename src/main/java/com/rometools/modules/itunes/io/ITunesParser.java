@@ -156,7 +156,7 @@ public class ITunesParser implements ModuleParser {
 			final Element isClosedCaptioned = element.getChild("isClosedCaptioned", ns);
 
 			if (isClosedCaptioned!= null && isClosedCaptioned.getValue() != null) {
-				final YesNo yesno = YesNo.valueOf(isClosedCaptioned.getValue().trim());
+				final YesNo yesno = YesNo.valueOfLowercase(isClosedCaptioned.getValue());
 				entryInfo.setClosedCaptioned(yesno);
 			}
 

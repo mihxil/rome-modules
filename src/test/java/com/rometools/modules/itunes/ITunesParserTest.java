@@ -107,7 +107,7 @@ public class ITunesParserTest extends AbstractTestCase {
     }
 
 	/**
-	 * Test of parse method, of class com.totsp.xml.syndication.itunes.ITunesParser.
+	 * Test of parse method, of class com.rometools.modules.itunes.io.ITunesParser.
 	 */
 	public void testParseItem() throws Exception {
 		File feed = new File(getTestFile("xml/leshow.xml"));
@@ -118,7 +118,7 @@ public class ITunesParserTest extends AbstractTestCase {
 
 		assertEquals("le Show", entry.getTitle());
 		EntryInformationImpl entryInfo = (EntryInformationImpl) entry.getModule(AbstractITunesObject.URI);
-		assertEquals(YesNo.yes, entryInfo.isClosedCaptioned());
+		assertEquals(YesNo.YES, entryInfo.isClosedCaptioned());
 		assertEquals(Integer.valueOf(2), entryInfo.getOrder());
 	}
 }

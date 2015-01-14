@@ -85,15 +85,15 @@ public class EntryInformationImpl extends AbstractITunesObject implements EntryI
         this.duration = duration;
     }
 
-	@Override
-	public YesNo isClosedCaptioned() {
-		return isClosedCaptioned;
-	}
+    @Override
+    public YesNo isClosedCaptioned() {
+        return isClosedCaptioned;
+    }
 
-	@Override
-	public void setClosedCaptioned(YesNo yesNo) {
-		this.isClosedCaptioned = yesNo;
-	}
+    @Override
+    public void setClosedCaptioned(YesNo yesNo) {
+        this.isClosedCaptioned = yesNo;
+    }
 
 	@Override
 	public Integer getOrder() {
@@ -150,10 +150,9 @@ public class EntryInformationImpl extends AbstractITunesObject implements EntryI
         final StringBuffer sb = new StringBuffer("[");
 		sb.append(" Duration: ");
 		sb.append(getDuration());
-		if (isClosedCaptioned != null) {
-			sb.append(" isClosedCaptioned: ");
-			sb.append(isClosedCaptioned);
-		}
+        sb.append(", isClosedCaptioned: ");
+        sb.append(isClosedCaptioned);
+
 		if (order != null) {
 			sb.append(" order: ");
 			sb.append(order);

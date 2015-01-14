@@ -71,7 +71,6 @@ public interface EntryInformation extends ITunes {
 
 	public void setClosedCaptioned(YesNo yesNo);
 
-
 	public Integer getOrder();
 
 	public void setOrder(Integer order);

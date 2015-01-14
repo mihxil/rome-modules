@@ -5,6 +5,10 @@ package com.rometools.modules.itunes.types;
  * @since 1.6
  */
 public enum YesNo {
-	yes,
-	no
+	YES,
+	NO;
+
+    public static YesNo valueOfLowercase(String string) {
+        return valueOf(string.trim().toUpperCase());
+    }
 }
